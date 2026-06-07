@@ -46,7 +46,7 @@ Ketiga file ini isinya sama persis — logika coaching-nya identik. Script Pytho
 
 ---
 
-## Yang Lo Butuhkan
+## Yang Kamu Butuhkan
 
 - Python 3.8 atau lebih baru
 - Akun COROS dengan minimal satu perangkat yang terhubung
@@ -90,7 +90,7 @@ COROS MCP yang bikin Claude bisa baca data jam tangan kamu langsung. Tambahin ke
 
 ### 4. Ambil token COROS (untuk upload program)
 
-Lo butuh dua nilai dari browser:
+Kamu butuh dua nilai dari browser:
 
 1. Buka [t.coros.com](https://t.coros.com) di Chrome dalam kondisi sudah login
 2. Tekan **F12** → buka tab **Network**
