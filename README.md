@@ -217,6 +217,23 @@ Each person needs their own `auth.json` — COROS tokens are account-specific. E
 
 ---
 
+## A note on limitations
+
+An AI-generated training plan is a starting point, not a prescription.
+
+The model works from structured inputs — pace, HR zones, injury flags, training load — but it cannot observe how you move, read fatigue that doesn't show in data, or adjust in real time the way a coach who knows you can. There are many variables that influence whether a plan is right for a given person on a given week: sleep quality, life stress, motivation, form, terrain, heat, illness. Most of these are invisible to any algorithm.
+
+A few honest caveats:
+
+- **Consult a coach or physio** if you are returning from injury, training for your first race, or dealing with recurring pain. This tool is not a substitute for professional guidance.
+- **Trust your body over the plan.** If a session feels wrong — too hard, too easy, or something hurts — adjust it. No plan survives contact with reality perfectly.
+- **AI makes mistakes.** Zone calculations may be off if your input data is sparse. Session structure may not suit your specific physiology. Treat the output as a draft, not a final answer.
+- **Progress takes time.** A well-structured plan helps, but consistency, sleep, and nutrition matter more than any specific session design.
+
+Use this as a tool to reduce friction in planning — not as a replacement for understanding your own training.
+
+---
+
 ## Contributing
 
 Fixes, improvements, and additional exercise mappings are welcome. Open an issue or PR.

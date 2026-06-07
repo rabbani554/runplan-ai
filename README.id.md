@@ -217,6 +217,23 @@ Setiap orang butuh `auth.json` sendiri — token COROS bersifat per akun. Semua 
 
 ---
 
+## Catatan tentang keterbatasan
+
+Program latihan yang digenerate AI adalah titik awal, bukan resep yang harus diikuti sepenuhnya.
+
+Model ini bekerja dari input terstruktur — pace, zona HR, catatan cedera, training load — tapi tidak bisa melihat cara kamu bergerak, membaca kelelahan yang tidak tertangkap data, atau menyesuaikan secara real-time seperti yang bisa dilakukan coach yang benar-benar mengenal atletnya. Ada banyak variabel yang menentukan apakah sebuah program cocok untuk seseorang di minggu tertentu: kualitas tidur, tekanan hidup, motivasi, kondisi cuaca, sakit ringan. Sebagian besar dari ini tidak terlihat oleh algoritma apapun.
+
+Beberapa catatan jujur:
+
+- **Konsultasikan dengan coach atau fisioterapis** jika kamu sedang kembali dari cedera, mempersiapkan race pertama, atau menghadapi nyeri yang berulang. Tool ini bukan pengganti bimbingan profesional.
+- **Percayai tubuh lebih dari jadwal.** Kalau sebuah sesi terasa tidak benar — terlalu berat, terlalu mudah, atau ada yang sakit — sesuaikan. Tidak ada program yang sempurna bertahan kontak dengan realita.
+- **AI bisa salah.** Kalkulasi zona bisa meleset jika data input terbatas. Struktur sesi mungkin tidak cocok dengan fisiologi spesifik kamu. Anggap output ini sebagai draf, bukan jawaban final.
+- **Kemajuan butuh waktu.** Program yang terstruktur membantu, tapi konsistensi, tidur, dan nutrisi lebih menentukan daripada desain sesi manapun.
+
+Gunakan ini sebagai alat untuk mengurangi hambatan dalam perencanaan — bukan sebagai pengganti pemahaman terhadap latihanmu sendiri.
+
+---
+
 ## Kontribusi
 
 Perbaikan, peningkatan, dan mapping exercise tambahan dipersilakan. Buka issue atau PR.
