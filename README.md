@@ -178,7 +178,7 @@ Files created during your session (gitignored):
 - **Recovery weeks** — every 4th week drops 30–40%
 - **Race taper** — volume reduces 40–50% in final 2–3 weeks
 - **Session types**: easy run, long run, recovery run, tempo, intervals, marathon pace, time trial, strides
-- **Strength training** (optional): lower body A, upper/core B, full body circuits — scheduled around running sessions
+- **Strength training** (optional): 216 runner-relevant exercises filtered by your equipment access (bodyweight only / home setup / full gym)
 
 ---
 

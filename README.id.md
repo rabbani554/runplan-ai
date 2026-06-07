@@ -179,7 +179,7 @@ File yang dibuat selama sesi (tidak di-commit):
 - **Recovery week** — setiap minggu ke-4 volume turun 30–40%
 - **Race taper** — volume turun 40–50% di 2–3 minggu terakhir sebelum race
 - **Jenis sesi**: easy run, long run, recovery run, tempo, interval, marathon pace, time trial, strides
-- **Strength training** (opsional): lower body, upper/core, full body circuit — dijadwalkan tidak bentrok sama sesi lari
+- **Strength training** (opsional): 216 exercise khusus pelari, difilter otomatis berdasarkan akses alat (bodyweight / home setup / full gym)
 
 ### Personalisasi strength training
 

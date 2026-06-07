@@ -46,8 +46,12 @@ Ask the user these questions one at a time (do not dump them all at once):
 8. When do you want to start the plan?
 9. How long should the plan be? (give a recommendation based on race date and current fitness)
 10. Do you want to include strength training? (yes / no / optional 1-2x/week)
-11. Any injury history or areas to be careful with?
-12. How hilly is your usual training area? (flat / rolling / hilly)
+11. If yes to strength: what equipment do you have access to?
+    - **Bodyweight only** — no gym, no weights (148 runner exercises available)
+    - **Home setup** — dumbbells or kettlebells at home (176 exercises available)
+    - **Full gym** — barbell, cable machines, gym equipment (all 216 exercises available)
+12. Any injury history or areas to be careful with?
+13. How hilly is your usual training area? (flat / rolling / hilly)
 
 Save answers to `athlete_profile.md` using the template from `templates/athlete_profile.md`.
 
@@ -233,6 +237,30 @@ For more exercises, read `data/coros_exercises.json` and match by `overview` fie
 **Strength training personalization rules:**
 
 Use the athlete's profile and MCP data to adapt every aspect of the strength program before generating sessions.
+
+### 0 — Filter by equipment access (apply first, before any other rule)
+
+Read the equipment answer from Step 2 question 11. This is a hard filter — never use an exercise outside the allowed set.
+
+**Bodyweight only** — restrict to these exercise types only:
+- Bodyweight movements (squats, lunges, bridge, plank, dead_bug, bird_dog, etc.)
+- Resistance band exercises (banded_hip_abduction, lateral_band_walks, etc.)
+- Plyometrics (box_jumps, squat_jumps, jumping_lunges, etc.)
+- No dumbbells, barbells, cables, or machines
+
+**Home setup (dumbbell/kettlebell)** — bodyweight above PLUS:
+- Dumbbell exercises (dumbbell_lunges, dumbbell_romanian_deadlift, goblet_squat, etc.)
+- Kettlebell exercises (kettlebell_windmill, turkish_get_up, two_arm_kettlebell_swings, etc.)
+- Still no barbell, cable machines, or gym machines
+
+**Full gym** — all 216 runner-relevant exercises available including:
+- Barbell (deadlifts, romanian_deadlift, hip_thrust, barbell_good_morning, etc.)
+- Cable machines (cable_glute_kickbacks, cable_pull_through, cable_rotation, etc.)
+- Gym machines (nordic_hamstring_curl, hex_bar_deadlift, reverse_step_down, etc.)
+
+If the user didn't answer this question, default to **bodyweight only** (safest assumption).
+
+---
 
 ### 1 — Exercise selection by injury history
 

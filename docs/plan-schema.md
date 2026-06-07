@@ -208,7 +208,13 @@ bridge             bird_dog            banded_hip_abduction
 banded_ankle_eversion                  banded_ankle_inversion
 ```
 
-For the full list of 382 exercises, see `data/coros_exercises.json`. Each entry has a `overview` field describing what the exercise is.
+For the full list, see `data/coros_exercises.json`. Of 382 total COROS exercises, **216 are runner-relevant** (targeting glutes, quads, hamstrings, calves, core, lower back). They are split by equipment:
+
+| Category | Count | Examples |
+|---|---|---|
+| Bodyweight / resistance band | 148 | squats, planks, lunges, banded_hip_abduction |
+| Home setup (dumbbell/kettlebell) | 28 | goblet_squat, dumbbell_romanian_deadlift, turkish_get_up |
+| Full gym (barbell/cable/machine) | 40 | deadlifts, hip_thrust, nordic_hamstring_curl, cable_pull_through |
 
 ---
 
