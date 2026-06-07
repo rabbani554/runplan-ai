@@ -20,18 +20,6 @@ If you're a COROS user and tired of paying for apps that don't do anything smart
 
 ---
 
-## Kenapa Gue Bikin Ini (Versi Bahasa Indonesia)
-
-Gue pengen punya program latihan yang beneran disesuaiin sama kondisi gue — bukan template generik yang dipake semua orang. Masalahnya, semua aplikasi yang bisa bikin program kayak gitu bayar. Dan mahal. Runna misalnya, bayar bulanan terus, padahal ujung-ujungnya tetep cuma template dengan sedikit kustomisasi.
-
-Terus COROS ngerilis MCP-nya — koneksi langsung antara AI dan data dari jam tangan lo. Nah ini yang bikin semuanya berubah. Claude sekarang bisa baca data fitness lo langsung dari akun COROS: VO2max, detak jantung istirahat, waktu race terakhir, training load, HRV — semua otomatis. Ga perlu input manual.
-
-Jadi gue bikin ini: AI coach yang tau kondisi lo sebenarnya, ngerti cara bikin program latihan yang bener, generate plan yang beneran personalized buat lo, terus langsung upload ke aplikasi COROS lo — gratis.
-
-Kalau lo pengguna COROS dan udah capek bayar aplikasi yang sebenernya ga lebih pinter dari Claude, repo ini buat lo.
-
----
-
 ## What it does
 
 1. **Reads your COROS data automatically** via MCP — fitness score, VO2max, recent race times, training load, HRV, resting HR
