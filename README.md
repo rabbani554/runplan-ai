@@ -23,10 +23,11 @@ If you're a COROS user and tired of paying for apps that don't do anything smart
 ## What it does
 
 1. **Reads your COROS data automatically** via MCP — fitness score, VO2max, recent race times, training load, HRV, resting HR
-2. **Asks only what it can't read** — your goal, race date, available training days, injury history
+2. **Asks only what it can't read** — your goal, race date, available training days, injury history, equipment access
 3. **Calculates your training zones** — pace zones and HR zones from your actual data
-4. **Generates a structured plan** — 8–24 weeks, polarized 80/20 structure, with optional strength training
-5. **Uploads directly to COROS** — plan appears in your app, ready to activate
+4. **Generates a structured running plan** — 8–24 weeks, polarized 80/20 structure, with coaching cues on every session
+5. **Builds a personalized strength program** — selects from 216 runner-specific exercises based on your injuries, race distance, training phase, equipment, and daily recovery score; no two athletes get the same program
+6. **Uploads everything directly to COROS** — running and strength sessions appear in your app, ready to activate
 
 ---
 
