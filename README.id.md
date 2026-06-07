@@ -26,7 +26,7 @@ Kalau pengguna COROS dan udah capek bayar aplikasi yang sebenernya ga lebih pint
 2. **Nanya cuma yang ga bisa dibaca** — goal, tanggal race, jadwal, riwayat cedera, akses alat
 3. **Hitung zona latihanmu** — pace zone dan HR zone dari data yang sebenarnya
 4. **Generate program lari terstruktur** — 8–24 minggu, struktur polarized 80/20, dengan coaching cue di setiap sesi
-5. **Bangun program strength yang benar-benar personal** — pilih dari 216 exercise khusus pelari berdasarkan cederamu, jarak race, fase training, alat yang ada, dan recovery score harian; tidak ada dua atlet yang dapat program yang sama
+5. **Bangun program strength berbasis data** — Claude generate program kekuatan dari 216 exercise khusus pelari, disesuaikan dengan riwayat cedera, jarak race target, fase training minggu ini, alat yang tersedia, dan data recovery harian dari jam tanganmu
 6. **Upload semua langsung ke COROS** — sesi lari dan strength muncul di aplikasi, tinggal aktifin
 
 ---

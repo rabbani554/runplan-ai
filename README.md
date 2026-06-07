@@ -26,7 +26,7 @@ If you're a COROS user and tired of paying for apps that don't do anything smart
 2. **Asks only what it can't read** — your goal, race date, available training days, injury history, equipment access
 3. **Calculates your training zones** — pace zones and HR zones from your actual data
 4. **Generates a structured running plan** — 8–24 weeks, polarized 80/20 structure, with coaching cues on every session
-5. **Builds a personalized strength program** — selects from 216 runner-specific exercises based on your injuries, race distance, training phase, equipment, and daily recovery score; no two athletes get the same program
+5. **Builds a data-driven strength program** — Claude generates a strength program from 216 runner-specific exercises, adapted to your injury history, race distance, current training phase, available equipment, and daily recovery data from your watch
 6. **Uploads everything directly to COROS** — running and strength sessions appear in your app, ready to activate
 
 ---
