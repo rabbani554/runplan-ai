@@ -61,8 +61,8 @@ Ketiga file ini isinya sama persis — logika coaching-nya identik. Script Pytho
 ### 1. Clone repo-nya
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/coros-coach.git
-cd coros-coach
+git clone https://github.com/rabbani554/runplan-ai.git
+cd runplan-ai
 ```
 
 ### 2. Install dependencies

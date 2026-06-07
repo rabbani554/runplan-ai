@@ -73,8 +73,8 @@ All three files contain the same coaching logic. The Python upload script and `t
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/coros-coach.git
-cd coros-coach
+git clone https://github.com/rabbani554/runplan-ai.git
+cd runplan-ai
 ```
 
 ### 2. Install dependencies
