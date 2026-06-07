@@ -178,7 +178,38 @@ Files created during your session (gitignored):
 - **Recovery weeks** — every 4th week drops 30–40%
 - **Race taper** — volume reduces 40–50% in final 2–3 weeks
 - **Session types**: easy run, long run, recovery run, tempo, intervals, marathon pace, time trial, strides
-- **Strength training** (optional): 216 runner-relevant exercises filtered by your equipment access (bodyweight only / home setup / full gym)
+
+---
+
+## Personalized Strength Training
+
+Most running apps give you the same 6–8 exercises on repeat. This repo uses the full COROS exercise database — **216 runner-relevant exercises** — and selects from them based on who you actually are.
+
+### What gets personalized
+
+| Signal | Source | What changes |
+|---|---|---|
+| Equipment access | You answer | Filters to bodyweight / home / full gym pool |
+| Injury history | You answer | Swaps out risky exercises (e.g. knee pain → box step-up replaces squat) |
+| Race distance | You answer | 5k/10k = power focus; HM = hip stability; marathon = fatigue resistance |
+| Training phase | Week number | Sets/reps shift: base (3×12) → build (4×8) → peak (4×6) → taper (2×8) |
+| Training load | COROS MCP | Overreaching → cut to 1 session, 2 sets max |
+| Recovery + HRV | COROS MCP | Low readiness → session flagged optional; declining HRV → maintenance only |
+| Terrain | You answer | Hilly → adds eccentric calf work and step-ups for downhill load |
+
+### Exercise pool breakdown
+
+Of 382 total COROS exercises, **216 target muscles runners actually need** (glutes, quads, hamstrings, calves, core, lower back):
+
+| Pool | Count | Needs |
+|---|---|---|
+| Bodyweight & resistance bands | **148** | Nothing — floor space only |
+| Home setup | **28** | Dumbbells or kettlebells |
+| Full gym | **40** | Barbell, cables, machines |
+
+### Why this matters vs. template apps
+
+A single strength session picks ~6 exercises from the available pool. Just from 216 exercises, choosing 6 gives over **8 billion possible combinations** — before accounting for sets, reps, rest, phase, or injury substitutions. No two athletes get the same program. A template app picks from a list of maybe 20 pre-built routines. This doesn't.
 
 ---
 

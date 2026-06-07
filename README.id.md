@@ -179,20 +179,38 @@ File yang dibuat selama sesi (tidak di-commit):
 - **Recovery week** — setiap minggu ke-4 volume turun 30–40%
 - **Race taper** — volume turun 40–50% di 2–3 minggu terakhir sebelum race
 - **Jenis sesi**: easy run, long run, recovery run, tempo, interval, marathon pace, time trial, strides
-- **Strength training** (opsional): 216 exercise khusus pelari, difilter otomatis berdasarkan akses alat (bodyweight / home setup / full gym)
 
-### Personalisasi strength training
+---
 
-Program kekuatan disesuaikan berdasarkan:
+## Strength Training yang Benar-Benar Personal
+
+Kebanyakan aplikasi lari kasih 6–8 gerakan yang sama diulang terus setiap minggu. Repo ini pakai database exercise COROS secara penuh — **216 exercise khusus pelari** — dan memilih dari sana berdasarkan kondisi dan kebutuhan nyata.
+
+### Apa yang dipersonalisasi
 
 | Sinyal | Dari mana | Efeknya |
 |---|---|---|
-| Riwayat cedera | Pertanyaan | Latihan diganti (misal nyeri lutut → box step-up gantiin squat) |
-| Fase training | Minggu ke berapa | Set/rep/istirahat berubah sesuai fase (base → build → peak → taper) |
-| Jarak race | Pertanyaan | 5k = fokus power; HM = stabilitas pinggul; maraton = pencegahan cedera |
-| Training load saat ini | COROS MCP | Beban tinggi → kurangi ke 1 sesi, maks 2 set |
-| Recovery score + HRV | COROS MCP | Readiness rendah → sesi jadi opsional; HRV turun → maintenance only |
-| Terrain | Pertanyaan | Berbukit → tambahin sl_calf_raise eksentrik dan box step-ups |
+| Akses alat | Kamu jawab | Filter ke pool bodyweight / home / gym |
+| Riwayat cedera | Kamu jawab | Exercise diganti (nyeri lutut → box step-up gantiin squat) |
+| Jarak race | Kamu jawab | 5k/10k = fokus power; HM = stabilitas pinggul; maraton = ketahanan |
+| Fase training | Minggu ke berapa | Set/rep bergeser: base (3×12) → build (4×8) → peak (4×6) → taper (2×8) |
+| Training load | COROS MCP | Beban tinggi → kurangi ke 1 sesi, maks 2 set |
+| Recovery + HRV | COROS MCP | Readiness rendah → sesi jadi opsional; HRV turun → maintenance only |
+| Terrain | Kamu jawab | Berbukit → tambah eccentric calf dan step-ups untuk beban turunan |
+
+### Breakdown pool exercise
+
+Dari 382 total exercise di COROS, **216 melatih otot yang beneran dibutuhkan pelari** (glutes, quads, hamstrings, calves, core, lower back):
+
+| Pool | Jumlah | Kebutuhan |
+|---|---|---|
+| Bodyweight & resistance band | **148** | Tidak perlu alat apapun |
+| Home setup | **28** | Dumbbell atau kettlebell |
+| Full gym | **40** | Barbell, cable, mesin gym |
+
+### Kenapa ini jauh lebih baik dari aplikasi template
+
+Satu sesi strength memilih sekitar 6 exercise dari pool yang tersedia. Hanya dari 216 exercise saja, memilih 6 menghasilkan lebih dari **8 miliar kombinasi yang mungkin** — belum termasuk variasi sets, reps, istirahat, fase training, dan substitusi cedera. Tidak ada dua atlet yang dapat program yang sama persis. Aplikasi template memilih dari sekitar 20 rutinitas yang sudah dibuat sebelumnya. Ini tidak.
 
 ---
 
