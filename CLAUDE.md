@@ -321,7 +321,42 @@ Rotate ST-A and ST-B across the week. Never do both on the same day.
 
 ---
 
-## STEP 6 — Upload to COROS
+## STEP 6 — Preview the plan and get confirmation
+
+Before uploading, present the full plan to the user in a readable format so they can review and approve it.
+
+Display a markdown summary structured like this:
+
+```
+## Plan Summary: [Plan Name]
+[Overview sentence]
+Total: [X] weeks · [Y] sessions · [Z] strength sessions
+
+---
+
+### Week 1
+| Day | Session | Type | Details |
+|-----|---------|------|---------|
+| TUE | W1 Easy 5km | Easy Run | 5km @ Z2 (140–158 bpm) |
+| SAT | W1 Long 10km | Long Run | 10km @ Z2 (140–162 bpm) |
+
+### Week 2
+...
+```
+
+Show every week. For interval sessions, include reps × distance (e.g. "6×800m @ Z5"). For strength sessions, list exercises with sets×reps. For recovery weeks, label them clearly as "Recovery Week".
+
+After displaying the full summary, ask:
+> "Does this plan look right? Any sessions you'd like to adjust before I upload to COROS?"
+
+- If the user wants changes → edit `training_plan.json` and re-display the affected weeks
+- If the user confirms → proceed to Step 7
+
+Do NOT upload until the user explicitly confirms.
+
+---
+
+## STEP 7 — Upload to COROS
 
 Run:
 ```
@@ -334,7 +369,7 @@ If successful, it prints a URL. Tell the user to open it and click **Start Plan*
 
 ---
 
-## STEP 7 — Confirm and guide
+## STEP 8 — Confirm and guide
 
 After upload:
 - Tell the user the plan is live on COROS

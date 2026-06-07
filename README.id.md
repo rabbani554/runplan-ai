@@ -121,19 +121,26 @@ Claude otomatis baca `CLAUDE.md` dan ngurusin sisanya dari sini.
 ## Cara Kerjanya
 
 ```
-COROS MCP baca data kamu otomatis
+COROS MCP baca data kamu otomatis         (~10 detik, otomatis)
         ↓
-Claude cuma nanya yang ga bisa dibaca
+Claude cuma nanya yang ga bisa dibaca     (~3–5 menit, kamu jawab)
 (goal, tanggal race, jadwal, cedera)
         ↓
-Claude nulis athlete_profile.md
+Claude nulis athlete_profile.md           (otomatis)
         ↓
-Claude generate training_plan.json
+Claude generate training_plan.json        (~5–10 menit — ini yang paling lama)
         ↓
-python scripts/upload_plan.py
+Claude tampilkan preview jadwal lengkap   (~1 menit, kamu review)
+Kamu konfirmasi atau minta perubahan
+        ↓
+python scripts/upload_plan.py             (~30 detik, otomatis)
         ↓
 Program muncul di aplikasi COROS kamu
 ```
+
+**Total waktu: sekitar 15–20 menit dari awal sampai selesai.**
+
+Step generate jadwal adalah yang paling lama — Claude sedang membangun program latihan multi-minggu secara lengkap sesi per sesi. Ini normal, bukan error atau freeze.
 
 Setelah upload, Claude kasih kamu link langsung. Buka dan klik **Start Plan** untuk set tanggal mulai.
 

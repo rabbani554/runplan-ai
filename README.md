@@ -121,19 +121,26 @@ Claude reads `CLAUDE.md` automatically and handles everything from here.
 ## How it works
 
 ```
-COROS MCP reads your data automatically
+COROS MCP reads your data automatically   (~10 sec, automatic)
         ↓
-Claude asks only what it can't read
+Claude asks only what it can't read       (~3–5 min, you answer)
 (goal, race date, schedule, injuries)
         ↓
-Claude writes athlete_profile.md
+Claude writes athlete_profile.md          (automatic)
         ↓
-Claude generates training_plan.json
+Claude generates training_plan.json       (~5–10 min — the longest step)
         ↓
-python scripts/upload_plan.py
+Claude shows you the full plan preview    (~1 min, you review)
+You confirm or request changes
+        ↓
+python scripts/upload_plan.py             (~30 sec, automatic)
         ↓
 Plan appears in your COROS app
 ```
+
+**Total time: ~15–20 minutes end to end.**
+
+The plan generation step takes the longest — Claude is building a full multi-week structured program session by session. This is normal; it is not frozen.
 
 After upload, Claude gives you a direct link. Open it and hit **Start Plan** to set your start date.
 
