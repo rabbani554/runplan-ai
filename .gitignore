@@ -1,0 +1,6 @@
+auth.json
+athlete_profile.md
+training_plan.json
+__pycache__/
+*.pyc
+.env
