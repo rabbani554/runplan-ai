@@ -1,39 +1,35 @@
-# COROS AI Running Coach
+# runplan-ai
 
 > 🌐 [Baca dalam Bahasa Indonesia](README.id.md)
 
-Turn your COROS watch into a personalized training partner. Clone this repo, open it in Claude Code — Claude reads your COROS data automatically, asks a few questions about your goals, generates a full structured plan, and uploads it directly to your watch.
+A COROS + AI integration that reads your watch data, asks about your goals, and generates a structured training plan — then uploads it directly to your COROS account via the web API.
 
-No paid subscription. No spreadsheets. No manual entry.
+Built for personal use, shared in case it helps others.
 
 ---
 
-## Why I built this
+## Background
 
-I wanted a training plan that actually fits *me* — my current pace, my schedule, my goals — not a generic template. The problem: every app that does this costs money. A lot of it. Apps like Runna charge monthly fees that add up fast, and at the end of the day they're still just pre-built plans with some light customization on top.
+I wanted a training plan based on my actual data — not a generic template. Paid apps like Runna exist, but they're expensive for what they do. When COROS released their MCP (Model Context Protocol), it became possible for an AI assistant to read watch data directly: VO2max, resting HR, recent race times, training load, HRV. That removed the main blocker, so I built this.
 
-Then COROS released their MCP (Model Context Protocol) — a direct connection between AI assistants and your watch data. That changed everything. Claude can now read your real fitness metrics, VO2max, resting HR, recent race times, training load, and HRV directly from your COROS account. No manual input. No guessing.
-
-So I built this: an AI coach that knows your actual fitness, understands periodization and training science, generates a plan built specifically for you, and pushes it straight to your COROS app — for free.
-
-If you're a COROS user and tired of paying for apps that don't do anything smarter than Claude already can, this repo is for you.
+It's not a product. It's a script and a set of instructions for Claude that happens to work well enough to share.
 
 ---
 
 ## What it does
 
-1. **Reads your COROS data automatically** via MCP — fitness score, VO2max, recent race times, training load, HRV, resting HR
-2. **Asks only what it can't read** — your goal, race date, available training days, injury history, equipment access
-3. **Calculates your training zones** — pace zones and HR zones from your actual data
-4. **Generates a structured running plan** — 8–24 weeks, polarized 80/20 structure, with coaching cues on every session
-5. **Builds a data-driven strength program** — Claude generates a strength program from 216 runner-specific exercises, adapted to your injury history, race distance, current training phase, available equipment, and daily recovery data from your watch
-6. **Uploads everything directly to COROS** — running and strength sessions appear in your app, ready to activate
+1. Reads your COROS data via MCP — VO2max, resting HR, recent race times, training load, HRV
+2. Asks only what it can't read — goal, race date, available days, injury history, equipment access
+3. Calculates training zones from your actual data (pace + HR)
+4. Generates a running plan — 8–24 weeks, polarized 80/20 structure
+5. Generates a strength program from 216 runner-relevant exercises, adapted to your injury history, race distance, training phase, equipment, and daily recovery data
+6. Uploads both to COROS via the internal web API
 
 ---
 
 ## Compatible AI Tools
 
-This repo works with multiple AI coding assistants. Each platform reads its own instruction file automatically:
+Each platform reads its own instruction file automatically:
 
 | Tool | Instruction file | How to open |
 |---|---|---|
@@ -41,25 +37,25 @@ This repo works with multiple AI coding assistants. Each platform reads its own 
 | **OpenAI Codex** | `AGENTS.md` | `codex` in terminal |
 | **Cursor** | `.cursor/rules/coros-coach.mdc` | Open folder in Cursor |
 
-All three files contain the same coaching logic. The Python upload script and `training_plan.json` format work identically regardless of which tool you use.
+The Python upload script and `training_plan.json` format work the same regardless of which tool you use.
 
-> **MCP note**: COROS MCP (for automatic data reading) requires your AI tool to support the Model Context Protocol. Claude Code and Cursor both support MCP. If your tool doesn't support MCP, the AI will ask you to enter your fitness data manually instead — the plan generation still works.
+> **MCP note**: Automatic data reading requires your AI tool to support MCP. Claude Code and Cursor both do. Without MCP, the AI asks for your fitness data manually — plan generation still works either way.
 
 ---
 
 ## Requirements
 
-- Python 3.8 or newer
+- Python 3.8+
 - A COROS account with at least one connected device
 - One of the compatible AI tools above (requires paid plan or API key)
-- COROS MCP configured in your AI tool (optional but recommended — for automatic data reading)
-- Google Chrome (to grab your COROS auth token for plan upload)
+- COROS MCP configured in your AI tool (optional — for automatic data reading)
+- Google Chrome (to extract your COROS auth token for plan upload)
 
 ---
 
 ## Setup
 
-### 1. Clone the repo
+### 1. Clone
 
 ```bash
 git clone https://github.com/rabbani554/runplan-ai.git
@@ -72,9 +68,9 @@ cd runplan-ai
 pip install -r requirements.txt
 ```
 
-### 3. Configure COROS MCP (for automatic data reading)
+### 3. Configure COROS MCP (optional but recommended)
 
-COROS MCP lets Claude read your watch data directly. Add it to your Claude Code MCP settings:
+Add to your Claude Code MCP settings:
 
 ```json
 {
@@ -87,20 +83,19 @@ COROS MCP lets Claude read your watch data directly. Add it to your Claude Code 
 }
 ```
 
-> If MCP is not configured, Claude will ask you to fill in your fitness data manually instead. The plan generation still works — it just requires more manual input.
+Without this, Claude will ask you to fill in your fitness data manually.
 
-### 4. Get your COROS token (for plan upload)
+### 4. Get your COROS auth token
 
-You need two values from your browser session:
+The upload script needs two values from your browser:
 
 1. Open [t.coros.com](https://t.coros.com) in Chrome while logged in
-2. Press **F12** → go to the **Network** tab
-3. Type `teamapi` in the filter box
-4. Click on any request that appears → click the **Headers** tab
-5. Copy the value of `accesstoken`
-6. Copy the value of `yfheader` — it looks like `{"userId":"123456789"}` — the number is your `user_id`
+2. Press **F12** → **Network** tab → filter by `teamapi`
+3. Click any request → **Headers** tab
+4. Copy `accesstoken`
+5. Copy `yfheader` — looks like `{"userId":"123456789"}` — the number is your `user_id`
 
-Create a file called `auth.json` in the project root (it's gitignored — never committed):
+Create `auth.json` in the project root (gitignored — never committed):
 
 ```json
 {
@@ -109,139 +104,131 @@ Create a file called `auth.json` in the project root (it's gitignored — never 
 }
 ```
 
-### 5. Open in Claude Code
+### 5. Open in your AI tool
 
 ```bash
 claude .
 ```
 
-Claude reads `CLAUDE.md` automatically and handles everything from here.
+The AI reads the instruction file automatically and walks through the rest.
 
 ---
 
 ## How it works
 
 ```
-COROS MCP reads your data automatically   (~10 sec, automatic)
+COROS MCP reads your data              (~10 sec, automatic)
         ↓
-Claude asks only what it can't read       (~3–5 min, you answer)
-(goal, race date, schedule, injuries)
+AI asks what it can't read             (~3–5 min, you answer)
         ↓
-Claude writes athlete_profile.md          (automatic)
+Writes athlete_profile.md              (automatic)
         ↓
-Claude generates training_plan.json       (~5–10 min — the longest step)
+Generates training_plan.json           (~5–10 min — the longest step)
         ↓
-Claude shows you the full plan preview    (~1 min, you review)
-You confirm or request changes
+Shows full plan preview for review     (~1 min, you confirm)
         ↓
-python scripts/upload_plan.py             (~30 sec, automatic)
+python scripts/upload_plan.py          (~30 sec, automatic)
         ↓
-Plan appears in your COROS app
+Plan appears in COROS app
 ```
 
-**Total time: ~15–20 minutes end to end.**
+**Typical end-to-end: ~15–20 minutes.**
 
-The plan generation step takes the longest — Claude is building a full multi-week structured program session by session. This is normal; it is not frozen.
-
-After upload, Claude gives you a direct link. Open it and hit **Start Plan** to set your start date.
+The generation step takes the longest — the AI is writing out every session across multiple weeks. It is not frozen; it just takes time.
 
 ---
 
 ## File structure
 
 ```
-coros-coach/
-├── CLAUDE.md                   ← orchestration instructions for Claude
+runplan-ai/
+├── CLAUDE.md                   ← instructions for Claude Code
+├── AGENTS.md                   ← instructions for OpenAI Codex
+├── .cursor/rules/              ← instructions for Cursor
 ├── README.md                   ← this file
+├── README.id.md                ← Bahasa Indonesia
 ├── requirements.txt
-├── .gitignore                  ← auth.json and athlete_profile.md are excluded
-├── auth.json.example           ← template (copy to auth.json and fill in)
+├── .gitignore
+├── auth.json.example
 ├── templates/
-│   └── athlete_profile.md      ← questionnaire template
+│   └── athlete_profile.md
 ├── data/
-│   └── coros_exercises.json    ← full COROS strength exercise library (382 exercises)
+│   └── coros_exercises.json    ← 382 COROS exercises (216 runner-relevant)
+├── docs/
+│   └── plan-schema.md          ← training_plan.json schema reference
 └── scripts/
-    └── upload_plan.py          ← converts training_plan.json → COROS API calls
+    └── upload_plan.py
 ```
 
-Files created during your session (gitignored):
-- `auth.json` — your personal COROS token
-- `athlete_profile.md` — your profile (auto-filled from MCP + your answers)
-- `training_plan.json` — the generated plan in machine-readable format
-
 ---
 
-## Training plan features
+## Training plan
 
-- **Reads real data** — zones calculated from your actual VO2max, resting HR, and race times
-- **80/20 polarized structure** — 80% easy Z2, 20% quality
-- **Progressive overload** — weekly km increases ≤10%
-- **Recovery weeks** — every 4th week drops 30–40%
-- **Race taper** — volume reduces 40–50% in final 2–3 weeks
-- **Session types**: easy run, long run, recovery run, tempo, intervals, marathon pace, time trial, strides
+**Running structure:**
+- Polarized 80/20 — 80% easy Z2, 20% quality sessions
+- Weekly km increase capped at 10%
+- Recovery week every 4th week (30–40% volume reduction)
+- Race taper in final 2–3 weeks (40–50% reduction)
+- Session types: easy, long, recovery, tempo, intervals, marathon pace, time trial, strides
 
----
+**Strength program:**
 
-## Personalized Strength Training
+Of 382 total COROS exercises, 216 target muscles relevant to running (glutes, quads, hamstrings, calves, core, lower back). The program is adapted based on:
 
-Most running apps give you the same 6–8 exercises on repeat. This repo uses the full COROS exercise database — **216 runner-relevant exercises** — and selects from them based on who you actually are.
+| Input | Effect |
+|---|---|
+| Equipment access | Filters to bodyweight / home / gym pool |
+| Injury history | Substitutes risky exercises per area |
+| Race distance | Adjusts emphasis (power vs stability vs endurance) |
+| Training phase | Shifts rep range (base 3×12 → build 4×8 → peak 4×6 → taper 2×8) |
+| Training load (MCP) | Reduces volume when overreaching |
+| Recovery score + HRV (MCP) | Flags session optional when readiness is low |
+| Terrain | Adds eccentric loading for hilly routes |
 
-### What gets personalized
+Exercise pool by equipment:
 
-| Signal | Source | What changes |
+| Pool | Count | Requires |
 |---|---|---|
-| Equipment access | You answer | Filters to bodyweight / home / full gym pool |
-| Injury history | You answer | Swaps out risky exercises (e.g. knee pain → box step-up replaces squat) |
-| Race distance | You answer | 5k/10k = power focus; HM = hip stability; marathon = fatigue resistance |
-| Training phase | Week number | Sets/reps shift: base (3×12) → build (4×8) → peak (4×6) → taper (2×8) |
-| Training load | COROS MCP | Overreaching → cut to 1 session, 2 sets max |
-| Recovery + HRV | COROS MCP | Low readiness → session flagged optional; declining HRV → maintenance only |
-| Terrain | You answer | Hilly → adds eccentric calf work and step-ups for downhill load |
-
-### Exercise pool breakdown
-
-Of 382 total COROS exercises, **216 target muscles runners actually need** (glutes, quads, hamstrings, calves, core, lower back):
-
-| Pool | Count | Needs |
-|---|---|---|
-| Bodyweight & resistance bands | **148** | Nothing — floor space only |
-| Home setup | **28** | Dumbbells or kettlebells |
-| Full gym | **40** | Barbell, cables, machines |
-
-### Why this matters vs. template apps
-
-A single strength session picks ~6 exercises from the available pool. Just from 216 exercises, choosing 6 gives over **8 billion possible combinations** — before accounting for sets, reps, rest, phase, or injury substitutions. No two athletes get the same program. A template app picks from a list of maybe 20 pre-built routines. This doesn't.
+| Bodyweight / resistance band | 148 | Nothing |
+| Home setup | 28 | Dumbbells or kettlebells |
+| Full gym | 40 | Barbell, cables, machines |
 
 ---
 
-## Sharing with friends
+## Sharing with others
 
-Each person needs their own `auth.json` with their own COROS token — tokens are personal and account-specific. Everything else in the repo is reusable.
+Each person needs their own `auth.json` — COROS tokens are account-specific. Everything else is reusable.
 
-> **Legal note**: This uses COROS's internal web API (the same requests your browser makes when you use t.coros.com). It reads and writes your own account only. No data is shared with third parties. Use responsibly.
+> **Note on API usage**: This uses COROS's internal web API — the same requests your browser sends when using t.coros.com. It only accesses your own account. No data is sent anywhere else. Use at your own discretion.
 
 ---
 
 ## Troubleshooting
 
-**`auth.json not found`** — create it from `auth.json.example` with your real token.
+**`auth.json not found`** — copy `auth.json.example` and fill in your token.
 
-**`401 Unauthorized`** — your token has expired. Repeat the browser steps to get a fresh `accesstoken`.
+**`401 Unauthorized`** — token expired. Repeat the browser steps to get a fresh one.
 
-**MCP tools not found** — Claude will fall back to the manual questionnaire. You can still get a full plan, just with more questions.
+**MCP not available** — AI will ask for data manually. Plan generation still works.
 
-**Plan not showing in app** — tokens sometimes expire mid-upload. Re-fetch and re-run `upload_plan.py`.
+**Plan not appearing in app** — token may have expired mid-upload. Re-fetch and rerun `upload_plan.py`.
 
-**Claude doesn't start automatically** — make sure you opened the project root with `claude .` (not a subdirectory).
+**AI doesn't start** — make sure you opened the project root, not a subfolder.
+
+---
+
+## Contributing
+
+Fixes, improvements, and additional exercise mappings are welcome. Open an issue or PR.
 
 ---
 
 ## Documentation
 
-- [docs/plan-schema.md](docs/plan-schema.md) — full reference for `training_plan.json` (step types, HR zones, strength exercises, examples)
+- [docs/plan-schema.md](docs/plan-schema.md) — `training_plan.json` schema reference
 
 ---
 
 ## License
 
-MIT — fork it, adapt it, share it.
+MIT
