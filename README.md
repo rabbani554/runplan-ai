@@ -164,12 +164,31 @@ runplan-ai/
 
 ## Training plan
 
-**Running structure:**
+**Road running structure:**
 - Polarized 80/20 — 80% easy Z2, 20% quality sessions
 - Weekly km increase capped at 10%
 - Recovery week every 4th week (30–40% volume reduction)
 - Race taper in final 2–3 weeks (40–50% reduction)
 - Session types: easy, long, recovery, tempo, intervals, marathon pace, time trial, strides
+
+**Trail running structure:**
+
+Trail training uses different metrics from road — pace is unreliable on variable terrain.
+
+- All session targets are HR-based — no pace targets
+- Long runs measured in time on feet (TOF) + weekly elevation gain target, not km
+- Weekly elevation builds progressively to 60–75% of race total elevation at peak week
+- Hill repeats replace road interval sessions
+- Back-to-back long run weekends for races ≥30km (one per 3-week block in Build phase)
+- Supports road trail 20–30km, ultra 50km+, and vertical KM/skyrace with different strength emphasis per distance
+
+**Urban trail runner support:**
+
+For athletes who can only access trails on specific days:
+
+- Elevation-dependent sessions (hill repeats, trail long runs) scheduled only on stated access days
+- Flat day substitutes: treadmill at 6–8% incline with same HR target, or stair repeats
+- Limited trail access triggers increased eccentric strength volume on weekday sessions to compensate for missing downhill loading
 
 **Strength program:**
 

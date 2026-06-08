@@ -164,12 +164,31 @@ runplan-ai/
 
 ## Program Latihan
 
-**Struktur lari:**
+**Struktur lari road:**
 - Polarized 80/20 — 80% easy Z2, 20% sesi quality
 - Kenaikan km per minggu maksimal 10%
 - Recovery week setiap minggu ke-4 (volume turun 30–40%)
 - Race taper di 2–3 minggu terakhir (volume turun 40–50%)
 - Jenis sesi: easy, long, recovery, tempo, interval, marathon pace, time trial, strides
+
+**Struktur lari trail:**
+
+Trail pakai metodologi yang berbeda dari road — pace tidak relevan di medan yang bervariasi.
+
+- Semua target sesi berbasis HR, tidak ada target pace
+- Long run diukur pakai waktu di kaki (time on feet) + target elevation per minggu, bukan km
+- Elevation per minggu dibangun progresif menuju 60–75% dari total elevation race di peak week
+- Hill repeats menggantikan interval session
+- Back-to-back long run weekend untuk race ≥30km (satu per 3-week block di fase Build)
+- Support trail 20–30km, ultra 50km+, dan vertical KM/skyrace dengan penekanan strength berbeda per jarak
+
+**Pelari trail yang tinggal di kota:**
+
+Untuk yang aksesnya ke trail hanya di hari tertentu:
+
+- Sesi yang butuh elevasi (hill repeats, trail long run) hanya dijadwalkan di hari ada akses
+- Pengganti hari flat: treadmill incline 6–8% dengan HR target sama, atau stair repeats
+- Kalau akses trail terbatas, eccentric strength di weekday ditambah untuk kompensasi downhill loading yang tidak didapat
 
 **Program strength:**
 
