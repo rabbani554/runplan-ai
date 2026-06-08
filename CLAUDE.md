@@ -241,6 +241,34 @@ From the athlete's race times or estimated fitness, calculate these zones:
 - Z5 Intervals: 93–100% HRmax
 - Marathon: 78–85% HRmax
 
+**Worked example — age 25, HRmax = 195:**
+- Z1 Recovery: < 133 bpm
+- Z2 Easy: 133–152 bpm
+- Z2 Long: 133–156 bpm
+- Z4 Tempo: 166–179 bpm
+- **Z5 Intervals: 181–195 bpm** ← this must be high, around 90–100% of HRmax
+- Marathon pace: 152–166 bpm
+
+**IMPORTANT — common mistakes to avoid:**
+- Z5 interval HR must be ≥ 180 bpm for most adults. If your calculation gives values below 170, recheck — you likely used the wrong formula or the wrong baseline.
+- Z2 and Z5 must not overlap. Z2 is conversational effort; Z5 is near-maximum, barely sustainable for 60–90 seconds.
+- Never assign Z2 HR values to interval steps. Never assign Z5 HR values to easy run steps.
+
+**Session type to HR zone mapping (use this as a sanity check before writing each session):**
+
+| Session type | HR zone | Intensity description |
+|---|---|---|
+| `recovery_run` | Z1 only: < 68% HRmax | Very easy, post-race flush |
+| `easy_run` | Z2: 68–78% HRmax | Conversational, could hold full sentences |
+| `long_run` | Z2: 68–78% HRmax | Same as easy, just longer |
+| `marathon_pace` | 78–85% HRmax | Controlled, 3–4 words per breath |
+| `tempo` | Z4: 85–92% HRmax | Comfortably hard, short sentences only |
+| `intervals` | **Z5: 93–100% HRmax** | Near-maximum, 1–2 words only |
+| `strides` | **No HR target** — Open mode | 85–90% effort, too short for HR to respond |
+| `time_trial` | Z5 race effort | All-out for the distance |
+
+**Strides: do not set `hr_low` or `hr_high` in the JSON.** The upload script handles strides as Open mode. Put effort guidance in the session `description` instead: "Run at 85–90% effort — tall, relaxed, controlled. Not a sprint. Full recovery between each."
+
 **Trail running — zone note:**
 For trail goals, HR zones are the primary target — pace is unreliable on technical or hilly terrain. Do not set pace targets for trail sessions. Use time on feet (TOF) as the long run metric instead of distance. Uphill effort will naturally push HR higher; this is expected and not a sign of going too hard.
 

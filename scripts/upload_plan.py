@@ -80,17 +80,34 @@ def mk_wu(id_, dur_s, sno):
             "targetType":TIME,"targetValue":dur_s,"userId":0,"videoUrl":""}
 
 def mk_tr(id_, ttype, tval, hr_low, hr_high, sno, grp=""):
+    has_hr = hr_low > 0 and hr_high > 0
     return {"access":0,"createTimestamp":1587381919,"defaultOrder":2,"equipment":[1],
-            "exerciseType":TR,"groupId":grp,"hrType":3,"id":id_,
-            "intensityCustom":2 if hr_low > 0 else 6,"intensityDisplayUnit":0,
+            "exerciseType":TR,"groupId":grp,"hrType":3 if has_hr else 0,"id":id_,
+            "intensityCustom":2 if has_hr else 0,"intensityDisplayUnit":0,
             "intensityMultiplier":0,"intensityPercent":0,"intensityPercentExtend":0,
-            "intensityType":2,"intensityValue":hr_low,"intensityValueExtend":hr_high,
+            "intensityType":2 if has_hr else 0,"intensityValue":hr_low if has_hr else 0,
+            "intensityValueExtend":hr_high if has_hr else 0,
             "isDefaultAdd":1,"isGroup":False,"isIntensityPercent":False,
             "name":"T3001","originId":"426109589008859136","overview":"sid_run_training",
             "part":[0],"restType":3,"restValue":0,"sets":1,"sortNo":sno,"sourceId":"0",
             "sourceUrl":"","sportType":1,"subType":0,
             "targetDisplayUnit":1 if ttype==DIST else 0,
             "targetType":ttype,"targetValue":tval,"userId":0,"videoUrl":""}
+
+def mk_stride_step(id_, tval, sno, grp=""):
+    # Strides are Open mode - no HR target. 100m is too short for HR to respond.
+    # Effort guidance lives in the session description.
+    return {"access":0,"createTimestamp":1587381919,"defaultOrder":2,"equipment":[1],
+            "exerciseType":TR,"groupId":grp,"hrType":0,"id":id_,
+            "intensityCustom":0,"intensityDisplayUnit":0,
+            "intensityMultiplier":0,"intensityPercent":0,"intensityPercentExtend":0,
+            "intensityType":0,"intensityValue":0,"intensityValueExtend":0,
+            "isDefaultAdd":1,"isGroup":False,"isIntensityPercent":False,
+            "name":"T3001","originId":"426109589008859136","overview":"sid_run_training",
+            "part":[0],"restType":3,"restValue":0,"sets":1,"sortNo":sno,"sourceId":"0",
+            "sourceUrl":"","sportType":1,"subType":0,
+            "targetDisplayUnit":1,"targetType":DIST,"targetValue":tval,
+            "userId":0,"videoUrl":""}
 
 def mk_cd(id_, dur_s, sno):
     return {"access":0,"createTimestamp":1586584214,"defaultOrder":3,"equipment":[1],
@@ -224,8 +241,7 @@ def build_running_session(session):
         elif st == "strides":
             g = eid()
             exercises.append(mk_group(g, step["reps"], step.get("rest_s", 60), sno))
-            exercises.append(mk_tr(eid(), DIST, m2c(step.get("distance_m", 100)),
-                                   0, 0, sno, grp=g))
+            exercises.append(mk_stride_step(eid(), m2c(step.get("distance_m", 100)), sno, grp=g))
             exercises.append(mk_rest(eid(), step.get("rest_s", 60), sno + 1, grp=g))
         sno += 1
     return exercises
