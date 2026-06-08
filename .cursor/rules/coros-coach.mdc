@@ -42,9 +42,10 @@ If MCP tools are not available or return no data, skip this step and proceed to 
 Ask the user these questions one at a time (do not dump them all at once):
 
 1. What is your name and age?
-2. What is your primary goal? (race a specific distance / general fitness / return from injury / post-race recovery / first time running)
+2. What is your primary goal? (race a specific distance / trail race / general fitness / return from injury / post-race recovery / first time running)
 3. If racing: what distance and what is your target time? When is the race date?
-4. What are your current best times? (5km / 10km / HM / marathon — skip any you haven't run)
+   - **If trail race:** also ask: race distance + total elevation gain, terrain type (runnable vs technical), access to hills for training, first trail race or not?
+4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
 7. Which day do you want to do your long run?
@@ -83,6 +84,9 @@ From the athlete's race times or estimated fitness, calculate these zones:
 - Z5 Intervals: 93–100% HRmax
 - Marathon: 78–85% HRmax
 
+**Trail running — zone note:**
+For trail goals, HR zones are the primary target. Do not set pace targets. Use time on feet (TOF) for long runs. Weekly elevation gain is a key metric — peak week = 60–75% of race total elevation gain.
+
 ---
 
 ## STEP 4 — Get COROS credentials
@@ -116,7 +120,13 @@ Generate `training_plan.json` — see `docs/plan-schema.md` for the full schema 
 - Strength on rest days or same day as easy runs (not before quality/long)
 - Taper: reduce volume 40–50% in final 2–3 weeks before race
 
-For full strength personalization rules, read `CLAUDE.md`.
+**Trail-specific (apply when goal = trail race):**
+- Long runs: use TOF (time on feet), not km. Note elevation target per session in description.
+- Weekly elevation: build to 60–75% of race elevation gain at peak week.
+- Hill repeats replace road intervals. HR-based only, no pace targets.
+- Back-to-back long runs for races ≥30km (1 per 3-week block in Build phase).
+
+For full strength personalization and trail eccentric loading rules, read `CLAUDE.md`.
 
 ---
 
