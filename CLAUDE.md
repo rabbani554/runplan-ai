@@ -37,9 +37,14 @@ If MCP tools are not available or return no data, skip this step and proceed to 
 Ask the user these questions one at a time (do not dump them all at once):
 
 1. What is your name and age?
-2. What is your primary goal? (race a specific distance / general fitness / return from injury / post-race recovery / first time running)
+2. What is your primary goal? (race a specific distance / trail race / general fitness / return from injury / post-race recovery / first time running)
 3. If racing: what distance and what is your target time? When is the race date?
-4. What are your current best times? (5km / 10km / HM / marathon — skip any you haven't run)
+   - **If trail race:** also ask:
+     - What is the race distance and total elevation gain?
+     - Is the terrain mostly runnable or technical (roots/rocks/steep)?
+     - Do you have access to hills or trails for daily training?
+     - Is this your first trail/ultra race, or have you done one before?
+4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
 7. Which day do you want to do your long run?
@@ -81,6 +86,9 @@ From the athlete's race times or estimated fitness, calculate these zones:
 - Z4 Tempo: 85–92% HRmax
 - Z5 Intervals: 93–100% HRmax
 - Marathon: 78–85% HRmax
+
+**Trail running — zone note:**
+For trail goals, HR zones are the primary target — pace is unreliable on technical or hilly terrain. Do not set pace targets for trail sessions. Use time on feet (TOF) as the long run metric instead of distance. Uphill effort will naturally push HR higher; this is expected and not a sign of going too hard.
 
 ---
 
@@ -202,6 +210,11 @@ Use these as templates — personalise them with the athlete's name, goal, or cu
 | `strength` (lower body) | "Runner-specific lower body work — build the strength that holds your form together in the final km of a race. Control the movement; don't rush the reps." |
 | `strength` (upper/core) | "Core stability is what keeps your running economy efficient when you're tired. Focus on control over speed — slow is strong here." |
 | `strength` (full body) | "Full body circuit to build resilience across the whole kinetic chain. Move well, breathe steadily, and stay consistent across all sets." |
+| `long_run` (trail) | "Run by time and HR — ignore your pace. Target: [X]h on feet, +[Y]m elevation. Hike the steep uphills; run what's runnable. The goal is time in Z2, not speed." |
+| `intervals` (hill repeats) | "Run each uphill at Z4–Z5 HR effort — hard but controlled, not a sprint. Walk or easy jog back down. Full recovery between reps. Elevation is the workout, not pace." |
+| `easy_run` (trail) | "Keep HR in Z2 the whole time. On uphills, slow down or hike — HR is your guide, not terrain. [X]m of climbing in this run counts toward your weekly elevation target." |
+| `long_run` (back-to-back day 1) | "Day 1 of back-to-back — run strong but within yourself. How you manage effort today decides how tomorrow feels. Stay in Z2, eat and hydrate on the move." |
+| `long_run` (back-to-back day 2) | "Day 2 — your legs already have miles in them. That's the point. Keep effort easy, focus on form when fatigue sets in. This is where trail fitness is built." |
 
 For recovery weeks, prefix any description with: "Recovery week — reduce effort if needed. Consistency over time matters more than any single session."
 
@@ -231,6 +244,35 @@ For more exercises, read `data/coros_exercises.json` and match by `overview` fie
 - Quality sessions (intervals/tempo): max 2 per week
 - Strength on rest days or same day as easy runs (not before quality/long)
 - Taper: reduce volume 40–50% in final 2–3 weeks before race
+
+---
+
+**Trail-specific principles (apply only when goal = trail race):**
+
+**Metrics:**
+- Primary volume metric: **time on feet (TOF)**, not km. Long run targets are written as duration (e.g. "2h30 easy trail"), not distance.
+- Secondary metric: **weekly elevation gain (m)**. This must be tracked and built progressively alongside TOF.
+- Pace targets: do not set pace targets for any trail session. All targets are HR-based.
+
+**Weekly elevation target calculation:**
+1. Get total race elevation gain from athlete profile (asked in Step 2).
+2. Calculate peak week target: **60–75% of race elevation gain**.
+   - Example: race = 3000m gain → peak week target = 1800–2250m
+3. Build toward peak progressively (same 10% rule applies to elevation as to volume).
+4. Recovery weeks: reduce elevation 30–40% alongside volume.
+5. In session `description`, always note the elevation target for that session where relevant (e.g. "Target +300m of climbing in this run").
+
+**Session structure for trail:**
+- `long_run`: use `duration_s` equivalent distance as approximate `distance_km`, but write in `description`: "Run by time and HR, not pace. Target: [X]h on feet, +[Y]m elevation."
+- **Hill repeats** replace road interval sessions. Use `intervals` type. Set `distance_m` to uphill segment length. Write in `description`: "Run uphill at Z4–Z5 HR effort, walk or easy jog back down for full recovery. HR target is on the uphill only."
+- **Back-to-back long runs** (SAT + SUN consecutive) are standard for trail races ≥30km. Include 1 back-to-back weekend per 3-week block in the Build phase. Second day should be 30–40% shorter/easier than first.
+- **Power hiking practice** for ultras (≥50km): include a note in 1 easy session per week during the Build phase: "Practice fast power hiking on uphills — arms pumping, upright posture. This is a race skill, not rest."
+
+**Trail strength emphasis (add on top of standard rules):**
+- Eccentric quad loading is critical for downhill running. Emphasize `box_step_ups` with slow eccentric lower (3-count down), `sl_deadlift`, `single_leg_squat`.
+- Ankle stability: always include `banded_ankle_eversion` and `banded_ankle_inversion` regardless of injury history.
+- Balance-focused work is higher priority than road plans: `sl_hip_bridge`, `single_leg_squat`, `bird_dog`.
+- For high-elevation races (>2000m gain), add an extra set of eccentric exercises starting from week 5.
 
 ---
 
@@ -299,6 +341,9 @@ For plans longer than 12 weeks, extend the Base and Build phases proportionally.
 | 5km / 10km | Power and stiffness: `single_leg_squat`, `box_step_ups`, `nordic_hamstring_curl`, plyometric note on strides |
 | Half marathon | Hip stability + calf endurance: `copenhagen_plank`, `sl_calf_raise`, `sl_deadlift` |
 | Marathon | Injury prevention + fatigue resistance: high reps, `hip_thrust`, `banded_hip_abduction`, `dead_bug` |
+| Trail 20–30km | Eccentric quad + ankle stability: `box_step_ups` (slow eccentric), `sl_calf_raise`, `banded_ankle_eversion`, `banded_ankle_inversion`, `single_leg_squat` |
+| Trail 50km+ (ultra) | All of the above + fatigue resistance: high reps in base, add `hip_thrust`, `dead_bug`, `bird_dog`; power hiking strengthens hip flexors — include `sl_deadlift` |
+| Vertical KM / skyrace | Maximum eccentric loading: `box_step_ups` 4×10 slow eccentric, `nordic_hamstring_curl`, `sl_deadlift`, `sl_calf_raise` — reduce plyometrics |
 | General fitness | Balanced: use default ST-A / ST-B split |
 
 ### 4 — Volume by current training load (MCP)

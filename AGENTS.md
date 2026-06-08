@@ -39,9 +39,14 @@ If MCP tools are not available or return no data, skip this step and proceed to 
 Ask the user these questions one at a time (do not dump them all at once):
 
 1. What is your name and age?
-2. What is your primary goal? (race a specific distance / general fitness / return from injury / post-race recovery / first time running)
+2. What is your primary goal? (race a specific distance / trail race / general fitness / return from injury / post-race recovery / first time running)
 3. If racing: what distance and what is your target time? When is the race date?
-4. What are your current best times? (5km / 10km / HM / marathon — skip any you haven't run)
+   - **If trail race:** also ask:
+     - What is the race distance and total elevation gain?
+     - Is the terrain mostly runnable or technical (roots/rocks/steep)?
+     - Do you have access to hills or trails for daily training?
+     - Is this your first trail/ultra race, or have you done one before?
+4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
 7. Which day do you want to do your long run?
@@ -79,6 +84,9 @@ From the athlete's race times or estimated fitness, calculate these zones:
 - Z4 Tempo: 85–92% HRmax
 - Z5 Intervals: 93–100% HRmax
 - Marathon: 78–85% HRmax
+
+**Trail running — zone note:**
+For trail goals, HR zones are the primary target — pace is unreliable on technical or hilly terrain. Do not set pace targets for trail sessions. Use time on feet (TOF) as the long run metric instead of distance.
 
 ---
 
@@ -154,7 +162,16 @@ See `docs/plan-schema.md` for the full schema reference.
 - Strength on rest days or same day as easy runs (not before quality/long)
 - Taper: reduce volume 40–50% in final 2–3 weeks before race
 
-For full strength personalization rules (injury substitutions, phase-based rep schemes, terrain adaptation), read `CLAUDE.md` — the rules are identical.
+**Trail-specific principles (apply only when goal = trail race):**
+- Use time on feet (TOF) as the primary long run metric, not km.
+- Track weekly elevation gain. Peak week target = 60–75% of total race elevation gain.
+- Build elevation progressively (10% rule applies to meters gained, same as volume).
+- No pace targets on any trail session — HR only.
+- Hill repeats replace road intervals. Use `intervals` type, uphill effort Z4–Z5, walk/jog down.
+- Back-to-back long runs (SAT + SUN) for races ≥30km — 1 per 3-week block in Build phase.
+- In session descriptions, always note the elevation target for that session.
+
+For full strength personalization rules (injury substitutions, phase-based rep schemes, trail-specific eccentric loading), read `CLAUDE.md` — the rules are identical.
 
 ---
 
