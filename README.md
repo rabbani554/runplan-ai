@@ -2,7 +2,7 @@
 
 > 🌐 [Baca dalam Bahasa Indonesia](README.id.md)
 
-A COROS + AI integration that reads your watch data, asks about your goals, and generates a structured training plan — then uploads it directly to your COROS account via the web API.
+A COROS + AI integration that reads your watch data, asks about your goals, and generates a structured training plan, then uploads it directly to your COROS account via the web API.
 
 Built for personal use, shared in case it helps others.
 
@@ -10,7 +10,7 @@ Built for personal use, shared in case it helps others.
 
 ## Background
 
-I wanted a training plan based on my actual data — not a generic template. Paid apps like Runna exist, but they're expensive for what they do. When COROS released their MCP (Model Context Protocol), it became possible for an AI assistant to read watch data directly: VO2max, resting HR, recent race times, training load, HRV. That removed the main blocker, so I built this.
+I wanted a training plan based on my actual data, not a generic template. Paid apps like Runna exist, but they're expensive for what they do. When COROS released their MCP (Model Context Protocol), it became possible for an AI assistant to read watch data directly: VO2max, resting HR, recent race times, training load, HRV. That removed the main blocker, so I built this.
 
 It's not a product. It's a script and a set of instructions for Claude that happens to work well enough to share.
 
@@ -18,10 +18,10 @@ It's not a product. It's a script and a set of instructions for Claude that happ
 
 ## What it does
 
-1. Reads your COROS data via MCP — VO2max, resting HR, recent race times, training load, HRV
-2. Asks only what it can't read — goal, race date, available days, injury history, equipment access
+1. Reads your COROS data via MCP: VO2max, resting HR, recent race times, training load, HRV
+2. Asks only what it can't read: goal, race date, available days, injury history, equipment access
 3. Calculates training zones from your actual data (pace + HR)
-4. Generates a running plan — 8–24 weeks, polarized 80/20 structure
+4. Generates a running plan, 8–24 weeks, polarized 80/20 structure
 5. Generates a strength program from 216 runner-relevant exercises, adapted to your injury history, race distance, training phase, equipment, and daily recovery data
 6. Uploads both to COROS via the internal web API
 
@@ -39,7 +39,7 @@ Each platform reads its own instruction file automatically:
 
 The Python upload script and `training_plan.json` format work the same regardless of which tool you use.
 
-> **MCP note**: Automatic data reading requires your AI tool to support MCP. Claude Code and Cursor both do. Without MCP, the AI asks for your fitness data manually — plan generation still works either way.
+> **MCP note**: Automatic data reading requires your AI tool to support MCP. Claude Code and Cursor both do. Without MCP, the AI asks for your fitness data manually, plan generation still works either way.
 
 ---
 
@@ -48,7 +48,7 @@ The Python upload script and `training_plan.json` format work the same regardles
 - Python 3.8+
 - A COROS account with at least one connected device
 - One of the compatible AI tools above (requires paid plan or API key)
-- COROS MCP configured in your AI tool (optional — for automatic data reading)
+- COROS MCP configured in your AI tool (optional, for automatic data reading)
 - Google Chrome (to extract your COROS auth token for plan upload)
 
 ---
@@ -93,9 +93,9 @@ The upload script needs two values from your browser:
 2. Press **F12** → **Network** tab → filter by `teamapi`
 3. Click any request → **Headers** tab
 4. Copy `accesstoken`
-5. Copy `yfheader` — looks like `{"userId":"123456789"}` — the number is your `user_id`
+5. Copy `yfheader`, looks like `{"userId":"123456789"}`, the number is your `user_id`
 
-Create `auth.json` in the project root (gitignored — never committed):
+Create `auth.json` in the project root (gitignored, never committed):
 
 ```json
 {
@@ -123,7 +123,7 @@ AI asks what it can't read             (~3–5 min, you answer)
         ↓
 Writes athlete_profile.md              (automatic)
         ↓
-Generates training_plan.json           (~5–10 min — the longest step)
+Generates training_plan.json           (~5–10 min, the longest step)
         ↓
 Shows full plan preview for review     (~1 min, you confirm)
         ↓
@@ -134,7 +134,7 @@ Plan appears in COROS app
 
 **Typical end-to-end: ~15–20 minutes.**
 
-The generation step takes the longest — the AI is writing out every session across multiple weeks. It is not frozen; it just takes time.
+The generation step takes the longest. The AI is writing out every session across multiple weeks. It is not frozen; it just takes time.
 
 ---
 
@@ -165,7 +165,7 @@ runplan-ai/
 ## Training plan
 
 **Road running structure:**
-- Polarized 80/20 — 80% easy Z2, 20% quality sessions
+- Polarized 80/20, 80% easy Z2, 20% quality sessions
 - Weekly km increase capped at 10%
 - Recovery week every 4th week (30–40% volume reduction)
 - Race taper in final 2–3 weeks (40–50% reduction)
@@ -173,9 +173,9 @@ runplan-ai/
 
 **Trail running structure:**
 
-Trail training uses different metrics from road — pace is unreliable on variable terrain.
+Trail training uses different metrics from road, pace is unreliable on variable terrain.
 
-- All session targets are HR-based — no pace targets
+- All session targets are HR-based, no pace targets
 - Long runs measured in time on feet (TOF) + weekly elevation gain target, not km
 - Weekly elevation builds progressively to 60–75% of race total elevation at peak week
 - Hill repeats replace road interval sessions
@@ -216,23 +216,23 @@ Exercise pool by equipment:
 
 ## Sharing with others
 
-Each person needs their own `auth.json` — COROS tokens are account-specific. Everything else is reusable.
+Each person needs their own `auth.json`, COROS tokens are account-specific. Everything else is reusable.
 
-> **Note on API usage**: This uses COROS's internal web API — the same requests your browser sends when using t.coros.com. It only accesses your own account. No data is sent anywhere else. Use at your own discretion.
+> **Note on API usage**: This uses COROS's internal web API, the same requests your browser sends when using t.coros.com. It only accesses your own account. No data is sent anywhere else. Use at your own discretion.
 
 ---
 
 ## Troubleshooting
 
-**`auth.json not found`** — copy `auth.json.example` and fill in your token.
+**`auth.json not found`**: copy `auth.json.example` and fill in your token.
 
-**`401 Unauthorized`** — token expired. Repeat the browser steps to get a fresh one.
+**`401 Unauthorized`**: token expired. Repeat the browser steps to get a fresh one.
 
-**MCP not available** — AI will ask for data manually. Plan generation still works.
+**MCP not available**: AI will ask for data manually. Plan generation still works.
 
-**Plan not appearing in app** — token may have expired mid-upload. Re-fetch and rerun `upload_plan.py`.
+**Plan not appearing in app**: token may have expired mid-upload. Re-fetch and rerun `upload_plan.py`.
 
-**AI doesn't start** — make sure you opened the project root, not a subfolder.
+**AI doesn't start**: make sure you opened the project root, not a subfolder.
 
 ---
 
@@ -240,16 +240,16 @@ Each person needs their own `auth.json` — COROS tokens are account-specific. E
 
 An AI-generated training plan is a starting point, not a prescription.
 
-The model works from structured inputs — pace, HR zones, injury flags, training load — but it cannot observe how you move, read fatigue that doesn't show in data, or adjust in real time the way a coach who knows you can. There are many variables that influence whether a plan is right for a given person on a given week: sleep quality, life stress, motivation, form, terrain, heat, illness. Most of these are invisible to any algorithm.
+The model works from structured inputs (pace, HR zones, injury flags, training load) but it cannot observe how you move, read fatigue that doesn't show in data, or adjust in real time the way a coach who knows you can. There are many variables that influence whether a plan is right for a given person on a given week: sleep quality, life stress, motivation, form, terrain, heat, illness. Most of these are invisible to any algorithm.
 
 A few honest caveats:
 
 - **Consult a coach or physio** if you are returning from injury, training for your first race, or dealing with recurring pain. This tool is not a substitute for professional guidance.
-- **Trust your body over the plan.** If a session feels wrong — too hard, too easy, or something hurts — adjust it. No plan survives contact with reality perfectly.
+- **Trust your body over the plan.** If a session feels wrong (too hard, too easy, or something hurts), adjust it. No plan survives contact with reality perfectly.
 - **AI makes mistakes.** Zone calculations may be off if your input data is sparse. Session structure may not suit your specific physiology. Treat the output as a draft, not a final answer.
 - **Progress takes time.** A well-structured plan helps, but consistency, sleep, and nutrition matter more than any specific session design.
 
-Use this as a tool to reduce friction in planning — not as a replacement for understanding your own training.
+Use this as a tool to reduce friction in planning, not as a replacement for understanding your own training.
 
 ---
 
@@ -261,7 +261,7 @@ Fixes, improvements, and additional exercise mappings are welcome. Open an issue
 
 ## Documentation
 
-- [docs/plan-schema.md](docs/plan-schema.md) — `training_plan.json` schema reference
+- [docs/plan-schema.md](docs/plan-schema.md): `training_plan.json` schema reference
 
 ---
 
