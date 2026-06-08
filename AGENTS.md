@@ -43,9 +43,13 @@ Ask the user these questions one at a time (do not dump them all at once):
 3. If racing: what distance and what is your target time? When is the race date?
    - **If trail race:** also ask:
      - What is the race distance and total elevation gain?
-     - Is the terrain mostly runnable or technical (roots/rocks/steep)?
-     - Do you have access to hills or trails for daily training?
      - Is this your first trail/ultra race, or have you done one before?
+     - How often can you access trails or hills? (every day / weekends only / specific days / treadmill only / flat urban — no hills)
+     - If not every day: which specific days?
+     - Max elevation gain reachable per session from your training area? (rough estimate in meters)
+     - Terrain type: runnable or technical (roots/rocks/steep)?
+     - Do you have trekking poles? (for ultras ≥50km)
+     - Any stairs or multi-floor staircases near home/office? (urban hill substitute)
 4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
@@ -163,7 +167,7 @@ See `docs/plan-schema.md` for the full schema reference.
 - Taper: reduce volume 40–50% in final 2–3 weeks before race
 
 **Trail-specific principles (apply only when goal = trail race):**
-- Use time on feet (TOF) as the primary long run metric, not km.
+- Use time on feet (TOF) as the primary long run metric for ultras. For 20–30km races, distance is still valid alongside TOF.
 - Track weekly elevation gain. Peak week target = 60–75% of total race elevation gain.
 - Build elevation progressively (10% rule applies to meters gained, same as volume).
 - No pace targets on any trail session — HR only.
@@ -171,7 +175,13 @@ See `docs/plan-schema.md` for the full schema reference.
 - Back-to-back long runs (SAT + SUN) for races ≥30km — 1 per 3-week block in Build phase.
 - In session descriptions, always note the elevation target for that session.
 
-For full strength personalization rules (injury substitutions, phase-based rep schemes, trail-specific eccentric loading), read `CLAUDE.md` — the rules are identical.
+**Trail access scheduling (urban athletes):**
+- Schedule elevation-dependent sessions ONLY on days the athlete has trail/hill access.
+- Flat day substitutes: treadmill at 6–8% incline (same HR), stair repeats, or flat easy run.
+- If limited trail access: increase eccentric strength volume on weekday ST sessions to compensate.
+- Stair protocol: multi-floor staircase, run up Z4–Z5, walk down. Count by floors.
+
+For full trail access rules, eccentric compensation logic, trekking pole guidance, and strength personalization, read `CLAUDE.md`.
 
 ---
 

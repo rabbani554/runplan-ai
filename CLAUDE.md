@@ -41,9 +41,13 @@ Ask the user these questions one at a time (do not dump them all at once):
 3. If racing: what distance and what is your target time? When is the race date?
    - **If trail race:** also ask:
      - What is the race distance and total elevation gain?
-     - Is the terrain mostly runnable or technical (roots/rocks/steep)?
-     - Do you have access to hills or trails for daily training?
      - Is this your first trail/ultra race, or have you done one before?
+     - How often can you access trails or hills for training? (every day / weekends only / specific days / treadmill incline only / flat urban area — no hills at all)
+     - If not every day: which specific days can you get to trails or elevation?
+     - What is the maximum elevation gain you can realistically reach in a single session from where you train? (rough estimate in meters — e.g. "a 150m hill 20 min away", "treadmill only", "completely flat")
+     - What type of terrain do you have access to: runnable (soft ground, clean single track) or technical (roots, rocks, steep descents)?
+     - Do you have trekking poles? (relevant for ultras ≥50km)
+     - Are there any stairs or multi-storey staircases near your home or office? (useful as urban hill training substitute)
 4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
@@ -268,11 +272,50 @@ For more exercises, read `data/coros_exercises.json` and match by `overview` fie
 - **Back-to-back long runs** (SAT + SUN consecutive) are standard for trail races ≥30km. Include 1 back-to-back weekend per 3-week block in the Build phase. Second day should be 30–40% shorter/easier than first.
 - **Power hiking practice** for ultras (≥50km): include a note in 1 easy session per week during the Build phase: "Practice fast power hiking on uphills — arms pumping, upright posture. This is a race skill, not rest."
 
+**Trail access scheduling rule:**
+
+Read the athlete's trail access answer and apply this before scheduling any session:
+
+| Access type | Scheduling rule |
+|---|---|
+| Every day | Schedule all trail sessions freely across the week |
+| Weekends only | Hill repeats and trail long runs → SAT/SUN only. All weekday runs are flat. |
+| Specific days | Schedule elevation-dependent sessions only on stated access days |
+| Treadmill incline only | Substitute all hill sessions with treadmill incline protocol (see below) |
+| Flat urban — no hills | No hill repeats or trail long runs. Use flat substitutes + stair protocol if available. |
+
+**Flat day substitutes (when athlete cannot reach trails on a given day):**
+
+| Trail session | Flat urban substitute |
+|---|---|
+| Hill repeats | Treadmill at 6–8% incline, same HR target, same duration per rep. Or: stair repeats (find a multi-floor staircase, go up at Z4 effort, walk down) |
+| Easy trail | Flat easy run, same distance, same HR zone. Description: "Flat today — focus on time on feet and HR discipline. Elevation comes on [access day]." |
+| Long trail (ultra) | Flat long run by time, same HR. Description: "No elevation today — compensate with extra eccentric strength this week." |
+
+**Elevation deficit compensation:**
+
+If athlete has limited trail access (weekend only or specific days), increase eccentric strength volume on weekday strength sessions to compensate for missing downhill loading:
+- Add 1 extra set of `box_step_ups` (slow 3-count eccentric lower) on every weekday ST session
+- Add `sl_calf_raise` eccentric on non-trail weeks
+- Note in description: "Extra eccentric work this session — compensating for limited trail access this week"
+
+**Trekking poles:**
+- If athlete has poles and race is ≥50km: add a note in 1 long run per month from Build phase onwards: "Practice using poles on uphills — plant at hip height, drive elbows back. Poles shift load to upper body; practice this before race day."
+- If no poles: no change needed.
+
+**Stair protocol (urban hill substitute):**
+When treadmill is not available and terrain is flat, stairs can substitute for hill repeats:
+- Find a staircase of at least 5 floors (or equivalent)
+- Run up at Z4–Z5 HR effort, walk down for recovery
+- Count reps by floors, not by time or distance
+- Description: "Stair repeats — run up at Z4 HR, walk down fully. [X] floors per rep, [Y] reps total. Not trail, but it loads the same muscles."
+
 **Trail strength emphasis (add on top of standard rules):**
 - Eccentric quad loading is critical for downhill running. Emphasize `box_step_ups` with slow eccentric lower (3-count down), `sl_deadlift`, `single_leg_squat`.
 - Ankle stability: always include `banded_ankle_eversion` and `banded_ankle_inversion` regardless of injury history.
 - Balance-focused work is higher priority than road plans: `sl_hip_bridge`, `single_leg_squat`, `bird_dog`.
 - For high-elevation races (>2000m gain), add an extra set of eccentric exercises starting from week 5.
+- For urban athletes with limited trail access: increase eccentric volume proportionally to the elevation deficit (see above).
 
 ---
 

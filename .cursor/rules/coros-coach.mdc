@@ -44,7 +44,7 @@ Ask the user these questions one at a time (do not dump them all at once):
 1. What is your name and age?
 2. What is your primary goal? (race a specific distance / trail race / general fitness / return from injury / post-race recovery / first time running)
 3. If racing: what distance and what is your target time? When is the race date?
-   - **If trail race:** also ask: race distance + total elevation gain, terrain type (runnable vs technical), access to hills for training, first trail race or not?
+   - **If trail race:** also ask: race distance + total elevation gain, first trail race or not, how often trail/hill access (daily/weekends/specific days/treadmill/flat urban), which specific days if not daily, max elevation gain reachable per session, terrain type (runnable vs technical), trekking poles (for ultra), stairs near home/office?
 4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
 5. How many days per week can you train?
 6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
@@ -121,12 +121,17 @@ Generate `training_plan.json` — see `docs/plan-schema.md` for the full schema 
 - Taper: reduce volume 40–50% in final 2–3 weeks before race
 
 **Trail-specific (apply when goal = trail race):**
-- Long runs: use TOF (time on feet), not km. Note elevation target per session in description.
+- Long runs: TOF for ultra, distance still valid for 20–30km. No pace targets — HR only.
 - Weekly elevation: build to 60–75% of race elevation gain at peak week.
-- Hill repeats replace road intervals. HR-based only, no pace targets.
+- Hill repeats replace road intervals. HR-based only.
 - Back-to-back long runs for races ≥30km (1 per 3-week block in Build phase).
 
-For full strength personalization and trail eccentric loading rules, read `CLAUDE.md`.
+**Urban trail athlete:**
+- Schedule elevation sessions ONLY on days with trail/hill access.
+- Flat day: treadmill 6–8% incline (same HR), stair repeats, or flat easy run.
+- Limited access: add eccentric ST volume on weekdays to compensate elevation deficit.
+
+For full trail access rules and strength personalization, read `CLAUDE.md`.
 
 ---
 
