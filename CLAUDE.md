@@ -20,7 +20,42 @@ Call these tools silently (do not narrate each call):
 
 Save everything you retrieved to `athlete_profile.md` (pre-fill the fields you already know). Then in Step 2, only ask for what is still missing or unknown.
 
-If MCP tools are not available or return no data, skip this step and proceed to Step 2 normally.
+**If MCP tools are not available or return no data**, do not skip — ask the fitness data manually before proceeding to Step 2. Use this format:
+
+> "COROS MCP is not connected. I'll ask a few quick questions about your fitness data instead."
+
+Ask these one at a time, as multiple choice where possible:
+
+**A. VO2max**
+> "Do you know your VO2max? (check COROS app: Me > Health > Fitness Assessment)"
+> 1. Yes — I'll type it
+> 2. I don't know
+
+**B. Resting heart rate**
+> "What is your resting HR? (check COROS app: Me > Health > Resting Heart Rate)"
+> 1. Yes — I'll type it
+> 2. I don't know
+
+**C. Recent race times**
+> "Do you have any recent race times? (within the last 6 months)"
+> 1. Yes — I'll list them
+> 2. No recent races
+
+**D. Current training load**
+> "How would you describe your training volume over the past 4 weeks?"
+> 1. Very low — barely running or just returning
+> 2. Low — 1–2 runs/week
+> 3. Moderate — 3–4 runs/week
+> 4. High — 5+ runs/week or structured training
+
+**E. Current recovery / readiness**
+> "How do you feel physically right now?"
+> 1. Fresh — well rested, ready to train hard
+> 2. Normal — nothing notable
+> 3. Tired — some accumulated fatigue
+> 4. Very fatigued — need recovery
+
+Save answers to `athlete_profile.md` under a `[Manual Input — MCP not connected]` section, then continue to Step 2 and skip any questions already answered here.
 
 ---
 
@@ -34,33 +69,148 @@ If MCP tools are not available or return no data, skip this step and proceed to 
 
 ## STEP 2 — Run the questionnaire
 
-Ask the user these questions one at a time (do not dump them all at once):
+Ask questions **one at a time**. Use numbered or lettered multiple choice options wherever possible — the user should only need to type a number, a letter, or a short answer. Only ask for free text when there is no sensible list of options (name, date, injury description, race time).
 
-1. What is your name and age?
-2. What is your primary goal? (race a specific distance / trail race / general fitness / return from injury / post-race recovery / first time running)
-3. If racing: what distance and what is your target time? When is the race date?
-   - **If trail race:** also ask:
-     - What is the race distance and total elevation gain?
-     - Is this your first trail/ultra race, or have you done one before?
-     - How often can you access trails or hills for training? (every day / weekends only / specific days / treadmill incline only / flat urban area — no hills at all)
-     - If not every day: which specific days can you get to trails or elevation?
-     - What is the maximum elevation gain you can realistically reach in a single session from where you train? (rough estimate in meters — e.g. "a 150m hill 20 min away", "treadmill only", "completely flat")
-     - What type of terrain do you have access to: runnable (soft ground, clean single track) or technical (roots, rocks, steep descents)?
-     - Do you have trekking poles? (relevant for ultras ≥50km)
-     - Are there any stairs or multi-storey staircases near your home or office? (useful as urban hill training substitute)
-4. What are your current best times? (5km / 10km / HM / marathon / trail — skip any you haven't run)
-5. How many days per week can you train?
-6. Which specific days are you free? (Mon/Tue/Wed/Thu/Fri/Sat/Sun)
-7. Which day do you want to do your long run?
-8. When do you want to start the plan?
-9. How long should the plan be? (give a recommendation based on race date and current fitness)
-10. Do you want to include strength training? (yes / no / optional 1-2x/week)
-11. If yes to strength: what equipment do you have access to?
-    - **Bodyweight only** — no gym, no weights (148 runner exercises available)
-    - **Home setup** — dumbbells or kettlebells at home (176 exercises available)
-    - **Full gym** — barbell, cable machines, gym equipment (all 216 exercises available)
-12. Any injury history or areas to be careful with?
-13. How hilly is your usual training area? (flat / rolling / hilly)
+**Format rule:** Every question with fixed options must be presented as a numbered list. The user replies with the number. Always include an option like "Other — I'll type it" or "I don't know" at the end.
+
+---
+
+**Q1. Name and age** *(free text)*
+> "What is your name and age?"
+
+---
+
+**Q2. Primary goal** *(multiple choice)*
+> "What is your primary goal?"
+> 1. Race a specific distance (road)
+> 2. Trail race
+> 3. General fitness
+> 4. Return from injury
+> 5. Post-race recovery
+> 6. First time running
+
+---
+
+**Q3. Race details** *(if Q2 = 1 or 2, free text for specifics)*
+> "What distance are you targeting and what is your goal time? When is the race date?"
+
+*If trail (Q2 = 2), also ask these one at a time:*
+
+**Q3a. Trail experience**
+> 1. First trail/ultra race
+> 2. Done at least one before
+
+**Q3b. Trail access frequency**
+> "How often can you access trails or hills for training?"
+> 1. Every day
+> 2. Weekends only (Sat + Sun)
+> 3. Specific days (I'll tell you which)
+> 4. Treadmill incline only — no real hills
+> 5. Flat urban area — no hills at all
+
+**Q3c. Which days** *(only if Q3b = 3)*
+> "Which days can you access trails? Reply with any combination:"
+> 1. Monday
+> 2. Tuesday
+> 3. Wednesday
+> 4. Thursday
+> 5. Friday
+> 6. Saturday
+> 7. Sunday
+
+**Q3d. Terrain type**
+> "What kind of terrain do you have access to?"
+> 1. Runnable — smooth trails, light hills, clean single track
+> 2. Technical — roots, rocks, steep ascents/descents
+> 3. Mixed
+
+**Q3e. Trekking poles** *(only for ultra ≥50km)*
+> "Do you have trekking poles?"
+> 1. Yes
+> 2. No
+
+**Q3f. Stairs nearby**
+> "Are there stairs or a multi-floor staircase near your home or office?"
+> 1. Yes — multi-floor building or outdoor stairs
+> 2. No
+
+---
+
+**Q4. Current best times** *(free text or "haven't run this distance")*
+> "What are your current best times? List any you have — skip distances you haven't raced."
+> (5km / 10km / HM / marathon / trail)
+
+---
+
+**Q5. Training days per week** *(multiple choice)*
+> "How many days per week can you train?"
+> 1. 2 days
+> 2. 3 days
+> 3. 4 days
+> 4. 5 days
+> 5. 6 days
+
+---
+
+**Q6. Which days are free** *(checkbox — user picks multiple)*
+> "Which days are available for training? Reply with numbers, e.g. 1 3 5:"
+> 1. Monday
+> 2. Tuesday
+> 3. Wednesday
+> 4. Thursday
+> 5. Friday
+> 6. Saturday
+> 7. Sunday
+
+---
+
+**Q7. Long run day** *(multiple choice from their available days)*
+> "Which of your available days do you want for the long run?"
+> *(list only the days they selected in Q6)*
+
+---
+
+**Q8. Plan start date** *(free text)*
+> "When do you want to start the plan? (e.g. next Monday, June 15)"
+
+---
+
+**Q9. Plan length** *(multiple choice — offer a recommendation based on race date)*
+> "How long should the plan be? Based on your race date, I recommend [X] weeks."
+> 1. [Recommended: X weeks — fits your race date]
+> 2. Shorter — [X-2 weeks]
+> 3. Longer — [X+2 weeks]
+> 4. I'll type a specific number
+
+---
+
+**Q10. Strength training** *(multiple choice)*
+> "Do you want to include strength training?"
+> 1. Yes — 2x per week
+> 2. Yes — 1x per week
+> 3. Optional — include it but mark as optional
+> 4. No strength training
+
+---
+
+**Q11. Equipment** *(only if Q10 = 1, 2, or 3)*
+> "What equipment do you have access to?"
+> 1. Bodyweight only — no gym, no weights (148 exercises available)
+> 2. Home setup — dumbbells or kettlebells (176 exercises available)
+> 3. Full gym — barbell, cables, machines (all 216 exercises available)
+
+---
+
+**Q12. Injury history** *(free text or "none")*
+> "Any injury history or areas to be careful with? Type 'none' if nothing to flag."
+
+---
+
+**Q13. Terrain** *(multiple choice — skip if trail goal already captured in Q3)*
+> "How hilly is your usual training area?"
+> 1. Flat
+> 2. Rolling — some hills
+> 3. Hilly — significant elevation in most runs
 
 Save answers to `athlete_profile.md` using the template from `templates/athlete_profile.md`.
 
